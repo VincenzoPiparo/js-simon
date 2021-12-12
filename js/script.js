@@ -20,3 +20,30 @@ console.log(randomNumber);
 setTimeout(userInput, 30000);
 
 // Facciamo inserire i numeri all'utente 1 alla volta
+const userNumber = [];
+function userInput(number) {
+    let i = 0;
+    while(i < 5) {
+        number = parseInt( prompt('Inserisci un numero') );
+        // console.log(number);
+        i++;
+        userNumber.push(number);
+    }
+
+    const rememberedNumbers = [];
+    for(let i = 0; i < userNumber.length; i++) {
+    let thisItem = userNumber[i];
+    if(randomNumber.includes(thisItem)) {
+        rememberedNumbers.push(thisItem);
+    }
+}
+// Stampiamo il risultato mediante un alert
+    console.log(rememberedNumbers);
+    console.log(userNumber);
+    alert(`Hai indovinato ${rememberedNumbers.length} numeri, ovvero ${rememberedNumbers}`);
+}
+
+// Fuznione generatrice numeri random
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
